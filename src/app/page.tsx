@@ -7,15 +7,17 @@ import { Badge } from "@/components/ui/badge"
 import { Star, Award, Users, ArrowRight, Play, CheckCircle, Phone, Mail, MapPin } from "lucide-react"
 import AnimatedCursor from "@/components/ui/animated-cursor"
 import CursorParticles from "@/components/ui/cursor-particles"
-import { saveAs } from "file-saver";
+import { saveAs } from "file-saver"
+import { motion } from 'framer-motion';
+import { easeInOut } from 'framer-motion';
 
 export default function Portfolio() {
   // const handleDownload = () => {
   //   saveAs('./Cover_Letter(4).pdf', 'Cover_Letter(4).pdf');
   // }
-   const handleDownload = () => {
-      saveAs("./Resume.pdf", "Resume.pdf");
-    };
+  const handleDownload = () => {
+    saveAs("./Resume.pdf", "Resume.pdf");
+  };
   return (
     <div className="min-h-screen bg-white">
       <AnimatedCursor />
@@ -55,7 +57,11 @@ export default function Portfolio() {
       <section className="pt-24 pb-16 bg-gradient-to-br from-emerald-50 to-blue-50 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
+            <motion.div 
+           initial={{x:-50, opacity: 0 }}
+            animate={{x:0 , opacity: 1 }}
+            transition={{ease:easeInOut , duration: 0.75 }}
+            > <div className="space-y-6">
               <div className="space-y-2">
                 <p className="text-emerald-500 font-medium">Hi There!</p>
                 <h1 className="text-5xl lg:text-6xl font-bold text-gray-900">
@@ -74,19 +80,26 @@ export default function Portfolio() {
                 Download CV
               </a>
 
-            </div>
+            </div> </motion.div>
 
-            <div className="relative">
-              <div className="absolute inset-0 bg-emerald-400 rounded-full w-80 h-80 -z-10 opacity-20"></div>
-              <div className="absolute top-10 right-10 w-32 h-32 bg-emerald-500 rounded-full opacity-10"></div>
+
+             <motion.div
+            initial={{x:50, opacity: 0 }}
+            animate={{x:0 , opacity: 1 }}
+            transition={{ease:easeInOut , duration: 1 }}
+        >
+             <div className="relative">
+              <div className="absolute  bg-emerald-400 rounded-full w-80 h-80 -z-10 opacity-20"></div>
+              <div className="absolute top-10 right-10 w-32 h-32 bg-emerald-500 rounded-full opacity-35"></div>
               <Image
-                src="/placeholder.svg?height=500&width=400"
+                src="/pp.png"
                 alt="Rachel Davis"
                 width={400}
                 height={500}
                 className="relative z-10 rounded-2xl"
               />
             </div>
+        </motion.div>
           </div>
         </div>
       </section>
