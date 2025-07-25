@@ -7,12 +7,15 @@ import { Badge } from "@/components/ui/badge"
 import { Star, Award, Users, ArrowRight, Play, CheckCircle, Phone, Mail, MapPin } from "lucide-react"
 import AnimatedCursor from "@/components/ui/animated-cursor"
 import CursorParticles from "@/components/ui/cursor-particles"
-import { saveAs } from 'file-saver';
+import { saveAs } from "file-saver";
 
 export default function Portfolio() {
-  const handleDownload = () => {
-    saveAs('./sayem_cv.pdf', 'sayem_cv.pdf');
-  }
+  // const handleDownload = () => {
+  //   saveAs('./Cover_Letter(4).pdf', 'Cover_Letter(4).pdf');
+  // }
+   const handleDownload = () => {
+      saveAs("./Resume.pdf", "Resume.pdf");
+    };
   return (
     <div className="min-h-screen bg-white">
       <AnimatedCursor />
@@ -66,7 +69,7 @@ export default function Portfolio() {
               </p>
               <a
                 onClick={handleDownload}
-                className="inline-flex items-center px-6 py-3 border border-emerald-500 text-emerald-500 rounded-md hover:bg-emerald-50 transition"
+                className="inline-flex  items-center px-6 py-3 border border-emerald-500 text-emerald-500 rounded-md hover:bg-emerald-50 transition"
               >
                 Download CV
               </a>
